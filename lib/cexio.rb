@@ -19,7 +19,7 @@ module CEX
     end
 
     def samuel
-      retunr 'Piterson'
+      return 'Piterson'
     end
 
     def api_call(method, param = {}, priv = false, action = '', is_json = true)
