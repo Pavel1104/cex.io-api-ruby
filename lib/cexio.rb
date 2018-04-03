@@ -20,6 +20,8 @@ module CEX
 
     def api_call(method, param = {}, priv = false, action = '', is_json = true)
       url = "https://cex.io/api/#{ method }/#{ action }"
+      puts "url is #{url}"
+      puts "param is #{param}"
       if priv
         self.nonce
         param.merge!(:key => self.api_key, :signature => self.signature.to_s, :nonce => self.nonce_v)
@@ -110,6 +112,9 @@ module CEX
       https.use_ssl = true
       params = Addressable::URI.new
       params.query_values = param
+      puts uri.path
+      puts params
+      puts params.query
       https.post(uri.path, params.query).body
     end
   end
