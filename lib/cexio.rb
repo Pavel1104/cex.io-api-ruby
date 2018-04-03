@@ -49,6 +49,10 @@ module CEX
       self.api_call('order_book', {:depth => depth}, false, couple)
     end
 
+    def o_b(couple = 'GHS/BTC', depth = 100, action = "")
+      self.api_call('order_book', {:depth => depth}, false, couple, action)
+    end
+
     def trade_history(since = 1, couple = 'GHS/BTC')
       self.api_call('trade_history', {:since => since.to_s}, false, couple)
     end
