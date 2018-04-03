@@ -119,6 +119,7 @@ module CEX
       puts uri.path
       puts params
       puts params.query
+      puts https.post(uri.path, params.query)
       https.post(uri.path, params.query).body
     end
   end
