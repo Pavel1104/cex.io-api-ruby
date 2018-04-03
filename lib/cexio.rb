@@ -43,8 +43,8 @@ module CEX
       self.api_call('convert', {:amnt => amount}, false, couple)
     end
 
-    def order_book(couple = 'GHS/BTC')
-      self.api_call('order_book', {}, false, couple)
+    def order_book(couple = 'GHS/BTC', depth = 100)
+      self.api_call('order_book', {:depth => depth}, false, couple)
     end
 
     def trade_history(since = 1, couple = 'GHS/BTC')
