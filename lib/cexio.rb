@@ -18,10 +18,6 @@ module CEX
       self.api_secret = api_secret
     end
 
-    def samuel
-      return 'Piterson'
-    end
-
     def api_call(method, param = {}, priv = false, action = '', is_json = true)
       url = "https://cex.io/api/#{ method }/#{ action }"
       if priv
@@ -105,7 +101,7 @@ module CEX
 
     def signature
       str = self.nonce_v + self.username + self.api_key
-      OpenSSL::HMAC.hexdigest(OpenSSL::Digest::Digest.new('sha256'), self.api_secret, str)
+      OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), self.api_secret, str)
     end
 
     def post(url, param)
